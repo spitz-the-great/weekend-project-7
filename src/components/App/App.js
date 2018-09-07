@@ -10,14 +10,12 @@ import FeedbackPageFour from '../FeedbackPageFour/FeedbackPageFour.js';
 
 
 
-
-
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          
+
           <Header />
           <Route exact path="/" component={FeedbackPageOne} />
           <Route path="/2" component={FeedbackPageTwo} />
@@ -28,21 +26,5 @@ class App extends Component {
     );
   }
 }
-
-
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <h1 className="App-title">Feedback!</h1>
-//           <h4><i>Don't forget it!</i></h4>
-//         </header>
-//         <br/>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;

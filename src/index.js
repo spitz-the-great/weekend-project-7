@@ -8,7 +8,12 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const defaultState = {
-
+    feeling: '',
+    understanding: '',
+    support: '',
+    comments: '',
+    flagged: '',
+    date: '',
 }
 
 const global = ( state = defaultState, action) =>{

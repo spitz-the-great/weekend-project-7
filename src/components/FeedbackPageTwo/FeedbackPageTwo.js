@@ -6,7 +6,7 @@ class FeedbackPageTwo extends Component{
 
     render(){
         return(
-            <div>page one</div>
+            <div>page two</div>
         )
     }
 }
