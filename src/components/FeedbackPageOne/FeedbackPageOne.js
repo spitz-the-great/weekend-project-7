@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 class FeedbackPageOne extends Component {
-constructor(props){
-    super(props)
 
-    this.state = {
-        feedback: {}
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            feedback: {}
+        }
     }
-}
     getFeedback() {
         console.log('in getFeedback');
 
@@ -28,14 +29,17 @@ constructor(props){
 
         console.log(this.state.feedback);
     }
-componentDidMount(){
-    this.getFeedback();
-}
+    componentDidMount() {
+        this.getFeedback();
+    }
 
 
     render() {
         return (
-            <div>page one</div>
+            <div>
+                <p>page 1 of 4</p>
+                <p>How are you feeling today?</p>
+            </div>
         )
     }
 }

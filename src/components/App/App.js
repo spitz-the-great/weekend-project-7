@@ -7,6 +7,8 @@ import FeedbackPageOne from '../FeedbackPageOne/FeedbackPageOne.js';
 import FeedbackPageTwo from '../FeedbackPageTwo/FeedbackPageTwo.js';
 import FeedbackPageThree from '../FeedbackPageThree/FeedbackPageThree.js';
 import FeedbackPageFour from '../FeedbackPageFour/FeedbackPageFour.js';
+import SuccessPage from '../SuccessPage/SuccessPage.js';
+import AdminPage from '../AdminPage/AdminPage.js';
 
 
 
@@ -21,6 +23,8 @@ class App extends Component {
           <Route path="/2" component={FeedbackPageTwo} />
           <Route path="/3" component={FeedbackPageThree} />
           <Route path="/4" component={FeedbackPageFour} />
+          <Route path="/5" component={SuccessPage} />
+          <Route path="/admin" component={AdminPage} />
         </div>
       </Router>
     );
