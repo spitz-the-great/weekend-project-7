@@ -27,10 +27,11 @@ class FeedbackPageTwo extends Component {
         console.log(this.state);
         event.preventDefault();
 
-        const action = { type: 'ADD_UNDERSTANDING', payload: this.state.understanding }
+        const action = {type:'ADD_UNDERSTANDING', payload: this.state.understanding}
         this.props.dispatch(action);
 
         this.props.history.push('3');
+        console.log("reduxState: ", this.props.reduxState.feedbackList);
     }
 
     render() {
@@ -38,7 +39,8 @@ class FeedbackPageTwo extends Component {
             <div>
                 <p>page 2 of 4</p>
                 <p>How are you understanding the presented items on this day?</p>
-                <input onChange={this.changeHandler} name="understanding" placeholder="understanding is the key to, you know, whatever"></input>
+                <p>Enter a number from 0 to 5</p>
+                <input required type="number" onChange={this.changeHandler} name="understanding" placeholder="understanding is the key to, you know, whatever"></input>
                 <button onClick={this.clickHandler}>Next</button>
             </div>
         )

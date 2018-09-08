@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class AdminPage extends Component{
+constructor(){
+    super()
+    this.state = {
+        feedback: {
+            
+        }
+    }
+}
+
 
     getFeedback() {
         console.log('in getFeedback');

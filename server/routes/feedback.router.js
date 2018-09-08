@@ -17,4 +17,21 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    console.log('add feedback post /feedback', req.body)
+    const queryText = 'INSERT INTO feedback ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4)';
+    pool.query(queryText, [
+            req.body.feeling, 
+            req.body.understanding, 
+            req.body.support, 
+            req.body.comments])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log('Error making insert query', err, req.body);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;
