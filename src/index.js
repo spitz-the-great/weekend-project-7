@@ -16,31 +16,36 @@ const defaultObject = {
     date: '',
 }
 
-const global = ( state = defaultObject, action) =>{
+const global = (state = defaultObject, action) => {
 
-        if (action.type === 'ADD_FEELING') {
+    if (action.type === 'ADD_FEELING') {
 
-            const newInfo = action.payload;
-            return {...state, defaultObject: newInfo.defaultObject, feeling: newInfo}
+        const newInfo = action.payload;
+        return { ...state, defaultObject: newInfo.defaultObject, feeling: newInfo }
 
-        } else if (action.type === 'ADD_UNDERSTANDING') {
+    } else if (action.type === 'ADD_UNDERSTANDING') {
 
-            const newInfo = action.payload;
-            return {...state, defaultObject: newInfo.defaultObject, understanding: newInfo}
-    
+        const newInfo = action.payload;
+        return { ...state, defaultObject: newInfo.defaultObject, understanding: newInfo }
+    }
+    else if (action.type === 'ADD_COMMENT') {
+
+        const newInfo = action.payload;
+        return { ...state, defaultObject: newInfo.defaultObject, comment: newInfo }
+
         // } else if (action.type === 'DUMP_IT') {
         //     return defaultObject;
-        }
-        console.log(state);
-        return state;
-        
-    
+    }
+    console.log(state);
+    return state;
+
+
 }
 
 
 
 const storeInstance = createStore(
-    combineReducers({global}),
+    combineReducers({ global }),
     applyMiddleware(logger),
 );
 
