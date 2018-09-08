@@ -7,7 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const defaultState = {
+const defaultObject = {
     feeling: '',
     understanding: '',
     support: '',
@@ -16,8 +16,25 @@ const defaultState = {
     date: '',
 }
 
-const global = ( state = defaultState, action) =>{
-    return state;
+const global = ( state = defaultObject, action) =>{
+
+        if (action.type === 'ADD_FEELING') {
+
+            const newInfo = action.payload;
+            return {...state, defaultObject: newInfo.defaultObject, feeling: newInfo}
+
+        } else if (action.type === 'ADD_UNDERSTANDING') {
+
+            const newInfo = action.payload;
+            return {...state, defaultObject: newInfo.defaultObject, understanding: newInfo}
+    
+        // } else if (action.type === 'DUMP_IT') {
+        //     return defaultObject;
+        }
+        console.log(state);
+        return state;
+        
+    
 }
 
 

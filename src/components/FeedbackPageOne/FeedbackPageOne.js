@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 class FeedbackPageOne extends Component {
 
@@ -8,37 +8,49 @@ class FeedbackPageOne extends Component {
         super(props)
 
         this.state = {
-            feedback: {}
+            
+                feeling: '',
+               
         }
-    }
-    getFeedback() {
-        console.log('in getFeedback');
 
-        axios({
-            method: 'GET',
-            url: '/feedback'
-        }).then((response) => {
-            console.log('back from db with: ', response.data);
-            this.setState({
-                feedback: response.data
-            });
-        }).catch((error) => {
-            console.log('error: ', error);
-            alert('there was an error getting feedback from db');
-        })
-
-        console.log(this.state.feedback);
-    }
-    componentDidMount() {
-        this.getFeedback();
+        this.changeHandler = this.changeHandler.bind(this);
     }
 
+
+    changeHandler(event) {
+        // event.preventDefault();
+
+        console.log(event.target.value);
+
+
+        this.setState({
+
+            feeling: event.target.value,
+        });
+
+        console.log(this.state.feeling);
+    };
+
+
+    clickHandler = (event) => {
+
+           console.log(this.state);
+           event.preventDefault();
+
+           const action = { type: 'ADD_FEELING', payload: this.state.feeling}
+           this.props.dispatch(action);
+
+           this.props.history.push('2');
+           
+        }
 
     render() {
         return (
             <div>
                 <p>page 1 of 4</p>
                 <p>How are you feeling today?</p>
+                <input onChange={this.changeHandler} name="feedback" placeholder="i feel like a turd, etc."></input>
+                <button onClick={this.clickHandler}>Next</button>
             </div>
         )
     }
