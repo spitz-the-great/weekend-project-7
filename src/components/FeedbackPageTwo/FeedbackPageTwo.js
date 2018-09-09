@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 class FeedbackPageTwo extends Component {
     constructor(props) {
         super(props)
@@ -35,7 +39,7 @@ class FeedbackPageTwo extends Component {
                 <p>How are you understanding the presented items on this day?</p>
                 <p>Enter a number from 0 to 5</p>
                 <input required type="number" onChange={this.changeHandler} name="understanding" placeholder="understanding is the key to, you know, whatever"></input>
-                <button onClick={this.clickHandler}>Next</button>
+                <Button variant="contained" color="primary" onClick={this.clickHandler}>Next</Button>
             </div>
         )
     }

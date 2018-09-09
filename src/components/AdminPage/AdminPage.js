@@ -3,6 +3,18 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 // import FeedbackList from '../FeedbackList/FeedbackList.js';
 
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+import Button from '@material-ui/core/Button';
+
+
 class AdminPage extends Component {
     constructor(props) {
         super(props)
@@ -44,52 +56,96 @@ class AdminPage extends Component {
         });
     };
 
-    render() {
-        return (
-            <div>
-                <h1>Admin Page</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feels</th>
-                            <th>Unners</th>
-                            <th>Sups</th>
-                            <th>Comms</th>
-                            <th>Date/Time</th>
-                            <th>Delete?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+
+    
+
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Admin Page</h1>
+//                 <table>
+//                     <thead>
+//                         <tr>
+//                             <th>Feels</th>
+//                             <th>Unners</th>
+//                             <th>Sups</th>
+//                             <th>Comms</th>
+//                             <th>Date/Time</th>
+//                             <th>Delete?</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         {this.state.feedback.map((feedback, i) => {
+
+//                             return (
+//                                 <tr key={i}>
+//                                     <td>{feedback.feeling}</td>
+//                                     <td>{feedback.understanding}</td>
+//                                     <td>{feedback.support}</td>
+//                                     <td>{feedback.comments}</td>
+//                                     <td>{feedback.date}</td>
+//                                     <td>
+//                                         <button onClick={() => { this.handleClick(feedback.id) }}>Delete
+
+//                                         </button>
+//                                     </td>
+//                                 </tr>
+//                             )
+//                         })}
+
+//                     </tbody>
+//                 </table>
+//                 </div>)}
+// }
+
+
+render(){
+    return(
+
+    <div>
+
+                <Paper width='100%'
+    marginTop="theme.spacing.unit * 3"
+    overflowX='auto' >
+                    <Table >
+                        <TableHead>
+                            <TableRow>
+                                <TableCell numeric>Feels</TableCell>
+                                <TableCell numeric>Unners</TableCell>
+                                <TableCell numeric>Sups</TableCell>
+                                <TableCell>Comms</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Delete?</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                         {this.state.feedback.map((feedback, i) => {
 
-                            return (
-                                <tr key={i}>
-                                    <td>{feedback.feeling}</td>
-                                    <td>{feedback.understanding}</td>
-                                    <td>{feedback.support}</td>
-                                    <td>{feedback.comments}</td>
-                                    <td>{feedback.date}</td>
-                                    <td>
-                                        <button onClick={() => { this.handleClick(feedback.id) }}>Delete</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
+                        return (
+                            <TableRow key={i}>
+                                <TableCell numeric>{feedback.feeling}</TableCell>
+                                <TableCell numeric>{feedback.understanding}</TableCell>
+                                <TableCell numeric>{feedback.support}</TableCell>
+                                <TableCell numeric>{feedback.comments}</TableCell>
+                                <TableCell numeric>{feedback.date}</TableCell>
+                                <TableCell>
+                                    <Button 
+                                    variant="contained" 
+                                    color="primary"
+                                    onClick={() => { this.handleClick(feedback.id) }}>Delete
+    
+                                    </Button>      
+                                     </TableCell>
+                            </TableRow>
+                         );
+                         }
+                         )}
+                        </TableBody>
+                    </Table>
+                </Paper>
 
-                        {/* return (
-                                <FeedbackList getFeedback={this.props.getFeedback}
-                                                key={i} 
-                                                feedbackIn={feedbackIn}
-                                                 />
-                            );
-                        }
-                        )} */}
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
-}
+</div>);};}
+  
 
 const mapReduxStateToProps = (reduxState) => ({
     reduxState

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 
 
 class FeedbackPageFour extends Component {
@@ -47,7 +51,7 @@ class FeedbackPageFour extends Component {
                 <p>page 4 of 4</p>
                 <p>You tryna add a comment? Or nah?</p>
                 <input onChange={this.changeHandler} name="comments" placeholder="let your words run wild"></input>
-                <button onClick={this.clickHandler}>Submit</button>
+                <Button variant="contained" color="primary" onClick={this.clickHandler}>Submit</Button>
             </div>
         )
     }

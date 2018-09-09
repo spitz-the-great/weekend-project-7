@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 class SuccessPage extends Component {
 
@@ -13,7 +16,7 @@ class SuccessPage extends Component {
         return (
             <div>
                 <h2>Thanks for that. I appreciate you.</h2>
-                <button onClick={this.handleClick}>Leave New Feedback</button>
+                <Button  variant="contained" color="primary" onClick={this.handleClick}>Leave New Feedback</Button>
         </div>
 
         )
