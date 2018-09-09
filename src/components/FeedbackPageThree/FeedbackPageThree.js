@@ -14,26 +14,21 @@ class FeedbackPageThree extends Component {
     }
 
     changeHandler(event) {
-        // event.preventDefault();
-        console.log(event.target.value);
+
         this.setState({
             support: event.target.value,
         });
-        console.log(this.state.support);
     };
 
 
     clickHandler = (event) => {
 
-        console.log(this.state);
         event.preventDefault();
 
         const action = { type: 'ADD_SUPPORT', payload: this.state.support }
         this.props.dispatch(action);
 
         this.props.history.push('4');
-        console.log("reduxState: ", this.props.reduxState.feedbackList);
-
     }
 
     render() {

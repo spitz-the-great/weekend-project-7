@@ -13,25 +13,19 @@ class FeedbackPageTwo extends Component {
     }
 
     changeHandler(event) {
-        // event.preventDefault();
-        console.log(event.target.value);
+
         this.setState({
             understanding: event.target.value,
         });
-        console.log(this.state.understanding);
     };
 
 
     clickHandler = (event) => {
-
-        console.log(this.state);
         event.preventDefault();
-
         const action = {type:'ADD_UNDERSTANDING', payload: this.state.understanding}
         this.props.dispatch(action);
 
         this.props.history.push('3');
-        console.log("reduxState: ", this.props.reduxState.feedbackList);
     }
 
     render() {

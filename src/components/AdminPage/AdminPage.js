@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import FeedbackList from '../FeedbackList/FeedbackList.js';
+// import FeedbackList from '../FeedbackList/FeedbackList.js';
 
 class AdminPage extends Component {
     constructor(props) {
         super(props)
-        
         this.state = {
             feedback: [],
-
         }
     }
 
     getFeedback() {
-        console.log('in getFeedback');
 
         axios({
             method: 'GET',
@@ -28,8 +25,6 @@ class AdminPage extends Component {
             console.log('error: ', error);
             alert('there was an error getting feedback from db');
         })
-
-        console.log(this.state.feedback);
     }
 
     componentDidMount() {
@@ -38,8 +33,6 @@ class AdminPage extends Component {
 
 
     handleClick = (feedbackId) => {
-        console.log('in delete', feedbackId);
-
         axios({
             method: 'DELETE',
             url: `/feedback/${feedbackId}`
@@ -50,7 +43,6 @@ class AdminPage extends Component {
             alert('error deleting feedback');
         });
     };
-
 
     render() {
         return (
@@ -70,22 +62,21 @@ class AdminPage extends Component {
                     <tbody>
                         {this.state.feedback.map((feedback, i) => {
 
-                            return(
-                            <tr key={i}>
-                            <td>{feedback.feeling}</td>
-                            <td>{feedback.understanding}</td>
-                            <td>{feedback.support}</td>
-                            <td>{feedback.comments}</td>
-                            <td>{feedback.date}</td>
-                            <td>
-                                <button onClick={() =>{this.handleClick(feedback.id)}}>Delete</button>
-                            </td>
-                        </tr>
-                            )})}
+                            return (
+                                <tr key={i}>
+                                    <td>{feedback.feeling}</td>
+                                    <td>{feedback.understanding}</td>
+                                    <td>{feedback.support}</td>
+                                    <td>{feedback.comments}</td>
+                                    <td>{feedback.date}</td>
+                                    <td>
+                                        <button onClick={() => { this.handleClick(feedback.id) }}>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
 
-
-
-                            {/* return (
+                        {/* return (
                                 <FeedbackList getFeedback={this.props.getFeedback}
                                                 key={i} 
                                                 feedbackIn={feedbackIn}

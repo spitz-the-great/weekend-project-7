@@ -6,42 +6,26 @@ class FeedbackPageOne extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
             feeling: '',
         }
-
         this.changeHandler = this.changeHandler.bind(this);
     }
 
 
     changeHandler(event) {
         event.preventDefault();
-
-        console.log(event.target.value);
-
         this.setState({
-
             feeling: event.target.value,
         });
-
-        console.log(this.state.feeling);
     };
 
 
     clickHandler = (event) => {
         event.preventDefault();
-        console.log(this.state);
-
-
-        const action = {type:'ADD_FEELING', payload: this.state.feeling}
-        console.log(action.payload)
+        const action = { type: 'ADD_FEELING', payload: this.state.feeling }
         this.props.dispatch(action);
-
-        
         this.props.history.push('2');
-        console.log("reduxState: ", this.props.reduxState.feedbackList);
-
     }
 
     render() {
