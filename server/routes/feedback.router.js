@@ -21,15 +21,27 @@ router.post('/', (req, res) => {
     console.log('add feedback post /feedback', req.body)
     const queryText = 'INSERT INTO feedback ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4)';
     pool.query(queryText, [
-            req.body.feeling, 
-            req.body.understanding, 
-            req.body.support, 
-            req.body.comments])
+        req.body.feeling,
+        req.body.understanding,
+        req.body.support,
+        req.body.comments])
         .then((result) => {
             res.sendStatus(201);
         })
         .catch((err) => {
             console.log('Error making insert query', err, req.body);
+            res.sendStatus(500);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    console.log('delete in /feedback');
+    const feedbackId = req.params.id;
+    pool.query(`DELETE FROM "feedback" WHERE "id"=$1;`, [feedbackId])
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('error deleting feedback: ', error);
             res.sendStatus(500);
         });
 });

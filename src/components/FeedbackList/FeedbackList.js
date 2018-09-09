@@ -1,26 +1,55 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+ //import DeleteButton from '../DeleteButton/DeleteButton.js';
 
-class FeedbackList extends Component{
+class FeedbackList extends Component {
 
-handleClick = () =>{
+    constructor(props){
+        super(props)
+        this.handleClick = this.handleClick.bind(this);
+        
+        this.state = {
+            id: '',
+        }
 
-}
+    }
 
-    render(){
-        return(
+
+    handleClick = (feedbackId, event) => {
+        console.log('in delete, passed id: ', feedbackId)
+
+        axios({
+            method: 'DELETE',
+            url: `/feedback/${feedbackId}`
+        }).then((response) => {
+            this.props.history.push('admin');
+          //  this.props.getFeedback();  -- couldnt get this to work
+          // going to put on adminpage to force new get for now
+        }).catch((error) => {
+            console.log('error making delete feedback request', error);
+            alert('error deleting feedback');
+        });
+    };
+
+
+    // onClick={this.handleClick()}
+
+    render() {
+        return (
             <tr>
-                <td>{this.props.feedback.feeling}</td>
-                <td>{this.props.feedback.understanding}</td>
-                <td>{this.props.feedback.support}</td>
-                <td>{this.props.feedback.comments}</td>
-                <td>{this.props.feedback.date}</td>
+                <td>{this.props.feedbackIn.feeling}</td>
+                <td>{this.props.feedbackIn.understanding}</td>
+                <td>{this.props.feedbackIn.support}</td>
+                <td>{this.props.feedbackIn.comments}</td>
+                <td>{this.props.feedbackIn.date}</td>
                 <td>
-                    <button onClick={this.handleClick}>Delete</button>
+                    <button onClick={() =>{this.handleClick(this.props.feedbackIn.id)}}>Delete</button>
                 </td>
             </tr>
         )
     }
 }
+
+//<DeleteButton feedBackId={this.props.feedback.id} />
 
 export default FeedbackList;

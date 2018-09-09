@@ -6,13 +6,12 @@ import FeedbackList from '../FeedbackList/FeedbackList.js';
 class AdminPage extends Component {
     constructor(props) {
         super(props)
+        
         this.state = {
             feedback: [],
 
         }
     }
-
-
 
     getFeedback() {
         console.log('in getFeedback');
@@ -38,6 +37,20 @@ class AdminPage extends Component {
     }
 
 
+    handleClick = (feedbackId) => {
+        console.log('in delete', feedbackId);
+
+        axios({
+            method: 'DELETE',
+            url: `/feedback/${feedbackId}`
+        }).then((response) => {
+            this.getFeedback();
+        }).catch((error) => {
+            console.log('error making delete feedback request', error);
+            alert('error deleting feedback');
+        });
+    };
+
 
     render() {
         return (
@@ -56,11 +69,30 @@ class AdminPage extends Component {
                     </thead>
                     <tbody>
                         {this.state.feedback.map((feedback, i) => {
-                            return (
-                                <FeedbackList key={i} feedback={feedback} />
+
+                            return(
+                            <tr key={i}>
+                            <td>{feedback.feeling}</td>
+                            <td>{feedback.understanding}</td>
+                            <td>{feedback.support}</td>
+                            <td>{feedback.comments}</td>
+                            <td>{feedback.date}</td>
+                            <td>
+                                <button onClick={() =>{this.handleClick(feedback.id)}}>Delete</button>
+                            </td>
+                        </tr>
+                            )})}
+
+
+
+                            {/* return (
+                                <FeedbackList getFeedback={this.props.getFeedback}
+                                                key={i} 
+                                                feedbackIn={feedbackIn}
+                                                 />
                             );
                         }
-                        )}
+                        )} */}
                     </tbody>
                 </table>
             </div>
