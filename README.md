@@ -1,11 +1,10 @@
 # Redux Feedback Loop
 
-> **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
+This project uses multiple page views with user inputs on each in order to build a set of user feedback data. Each page has one input. When the user moves to the next step their input is captured and appended to their previous inputs using Redux.
 
-"And as always, what do I end every day with?" - Luke
+At upon submit at the final step this full set of user input data being stored in Redux is then posted to the database.
 
-
- For this assignment, you will be creating a feedback form modeled after Prime's system. Feedback will be collected over 4 views, and when all steps are complete, your app will save the feedback in the database. In a separate view, a user will be able to see all the collected feedback. 
+There is also an Admin page that retrives all the submitted data and displays it in list form. This page also allows an admin to delete from the database whichever set of feedback they want.
 
 ### SETUP
 
@@ -23,8 +22,6 @@ npm run client
 ```
 
 ### ADD NEW FEEDBACK
-
-> NOTE: As a baseline requirement, you must use Redux to store your data across views.
 
 Create a multi-part form that allows users to leave feedback for today. 
 There will be 4 views for the form parts.
