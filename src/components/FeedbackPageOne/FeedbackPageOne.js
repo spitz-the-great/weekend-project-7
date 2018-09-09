@@ -34,10 +34,15 @@ class FeedbackPageOne extends Component {
     render() {
         return (
             <div>
-                <p>page 1 of 4</p>
+                <h2>Page 1 of 4</h2>
                 <p>How are you feeling today?</p>
-                <p>Enter a number from 0 to 5</p>
-                <input required type="number" onChange={this.changeHandler} name="feedback" placeholder="i feel like a turd, etc."></input>
+                <p>Enter a number from 0 to 5:</p>
+                <input type="number"
+                    onChange={this.changeHandler}
+                    name="feedback">
+                </input>
+                <br />
+                <br />
                 <Button variant="contained" color="primary" onClick={this.clickHandler}>Next</Button>
             </div>
         )

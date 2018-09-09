@@ -35,11 +35,14 @@ class FeedbackPageTwo extends Component {
     render() {
         return (
             <div>
-                <p>page 2 of 4</p>
-                <p>How are you understanding the presented items on this day?</p>
-                <p>Enter a number from 0 to 5</p>
-                <input required type="number" onChange={this.changeHandler} name="understanding" placeholder="understanding is the key to, you know, whatever"></input>
+                <h2>Page 2 of 4</h2>
+                <p>How are you feeling today?</p>
+                <p>Enter a number from 0 to 5:</p>
+                <input required type="number" onChange={this.changeHandler} name="understanding"></input>
+                <br/>
+                <br/>
                 <Button variant="contained" color="primary" onClick={this.clickHandler}>Next</Button>
+            
             </div>
         )
     }

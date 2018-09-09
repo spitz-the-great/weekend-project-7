@@ -48,9 +48,11 @@ class FeedbackPageFour extends Component {
     render() {
         return (
             <div>
-                <p>page 4 of 4</p>
+                <h2>Page 4 of 4</h2>
                 <p>You tryna add a comment? Or nah?</p>
                 <input onChange={this.changeHandler} name="comments" placeholder="let your words run wild"></input>
+                <br/>
+                <br/>
                 <Button variant="contained" color="primary" onClick={this.clickHandler}>Submit</Button>
             </div>
         )

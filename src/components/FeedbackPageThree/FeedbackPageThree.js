@@ -38,10 +38,12 @@ class FeedbackPageThree extends Component {
     render() {
         return (
             <div>
-                <p>page 3 of 4</p>
+                <h2>Page 3 of 4</h2>
                 <p>You feelin that good support?!</p>
-                <p>Enter a number from 0 to 5</p>
+                <p>Enter a number from 0 to 5:</p>
                 <input required type="number"onChange={this.changeHandler} name="support" placeholder="whatchyou need baby"></input>
+                <br/>
+                <br/>
                 <Button variant="contained" color="primary" onClick={this.clickHandler}>Next</Button>
             </div>
         )
