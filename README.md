@@ -4,7 +4,7 @@ This project uses multiple page views with user inputs on each in order to build
 
 At upon submit at the final step this full set of user input data being stored in Redux is then posted to the database.
 
-There is also an Admin page that retrives all the submitted data and displays it in list form. This page also allows an admin to delete from the database whichever set of feedback they want.
+There is also an Admin page at `/admin` in the url that retrives all the submitted data and displays it in list form. This page also allows an admin to delete from the database whichever set of feedback they want.
 
 ### SETUP
 
@@ -20,38 +20,18 @@ Now that the server is running, open a new terminal tab with `cmd + t` and start
 ```
 npm run client
 ```
+## Screen Shots
 
-### ADD NEW FEEDBACK
+### Enter feedback pages: 
 
-Create a multi-part form that allows users to leave feedback for today. 
-There will be 4 views for the form parts.
-The parts:
-- How are you feeling today?
-![feeling](wireframes/page-one.png)
-- How well are you understanding the content?
-![understanding](wireframes/page-two.png)
-- How well are you being supported?
-![support](wireframes/page-three.png)
-- Any comments you want to leave?
-![comments](wireframes/page-four.png)
+![Screen Shot](public/enter1.png)
 
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process.
+![Screen Shot](public/enter2.png)
 
- When the form is complete, save the submission in the database. The user should see a submission success page.
- ![understanding](wireframes/page-five.png)
+![Screen Shot](public/enter3.png)
 
-### DISPLAY FEEDBACK
+![Screen Shot](public/confirmPage.png)
 
-Display all of the existing feedback at the route `/admin`. The most recently added feedback should appear at the top of the list. Allow the user to delete existing feedback. Prompt the user to confirm prior to deleting the feedback from the database.
+### Admin page:
 
-![display feedback](wireframes/admin.png)
-
-## STRETCH GOALS
-
-- Update this README.md to describe the project in your own words
-- Improve the styling of the app using Material-UI theme, cards, snackbars, buttons, nav bar, and icons, and anything else you'd like.
-- Add the ability to flag an existing feedback entry for further review on the /admin view
-- Deploy your project to Heroku -- you'll need to read the special instructions for building and deploying with these apps! 
-
-
-> NOTE: These stretch goals are intended to be completed in order.
+![Screen Shot](public/admin_view.png)
